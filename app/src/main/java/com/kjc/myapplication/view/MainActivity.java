@@ -10,10 +10,13 @@ import com.kjc.myapplication.di.CarComponent;
 import com.kjc.myapplication.di.DaggerCarComponent;
 import com.kjc.myapplication.model.Car;
 
+import javax.inject.Inject;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private Car car;
+    @Inject
+    Car car;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         CarComponent component = DaggerCarComponent.create();
-        component.getCar();
+        //car = component.getCar();
+        component.inject(this);
         car.drive();
     }
 }
