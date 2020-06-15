@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.kjc.myapplication.R;
 
-import com.kjc.myapplication.di.CarComponent;
+import com.kjc.myapplication.di.component.CarComponent;
 import com.kjc.myapplication.di.DaggerCarComponent;
 import com.kjc.myapplication.model.Car;
 
@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         CarComponent component = DaggerCarComponent.create();
-        //car = component.getCar();
         component.inject(this);
         car.drive();
     }

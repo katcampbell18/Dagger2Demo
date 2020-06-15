@@ -1,4 +1,4 @@
-package com.kjc.myapplication;
+package com.kjc.myapplication.model;
 
 import android.util.Log;
 
