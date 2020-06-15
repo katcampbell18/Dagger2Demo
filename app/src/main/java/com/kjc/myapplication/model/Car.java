@@ -8,11 +8,13 @@ public class Car {
 
     private static final String TAG = "Car";
 
+    private Driver driver;
     private Engine engine;
     private Wheels wheels;
 
     @Inject
-    public Car(Engine engine, Wheels wheels) {
+    public Car(Driver driver, Engine engine, Wheels wheels) {
+        this.driver = driver;
         this.engine = engine;
         this.wheels = wheels;
     }
@@ -22,9 +24,8 @@ public class Car {
         remote.setListener(this);
     }
 
-
     public void drive(){
         engine.start();
-        Log.d(TAG, "driving...");
+        Log.d(TAG, driver + " drives " + this);
     }
 }
