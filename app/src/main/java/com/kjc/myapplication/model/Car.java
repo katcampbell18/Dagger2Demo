@@ -2,8 +2,11 @@ package com.kjc.myapplication.model;
 
 import android.util.Log;
 
+import com.kjc.myapplication.di.PerActivity;
+
 import javax.inject.Inject;
 
+@PerActivity
 public class Car {
 
     private static final String TAG = "Car";
