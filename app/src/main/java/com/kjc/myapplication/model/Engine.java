@@ -2,10 +2,7 @@ package com.kjc.myapplication.model;
 
 import javax.inject.Inject;
 
-public class Engine {
+public interface Engine {
 
-    @Inject
-    public Engine(){
-
-    }
+    void start();
 }
