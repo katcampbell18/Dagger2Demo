@@ -8,6 +8,8 @@ import com.kjc.myapplication.R;
 
 import com.kjc.myapplication.di.component.CarComponent;
 import com.kjc.myapplication.di.DaggerCarComponent;
+import com.kjc.myapplication.di.component.DaggerCarComponent;
+import com.kjc.myapplication.di.module.DieselEngineModule;
 import com.kjc.myapplication.model.Car;
 
 import javax.inject.Inject;
@@ -23,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CarComponent component = DaggerCarComponent.create();
+        CarComponent component = DaggerCarComponent.builder()
+                .dieselEngineModule(new DieselEngineModule(100))
+                .build();
         component.inject(this);
         car.drive();
     }
