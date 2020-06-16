@@ -28,10 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
        ActivityComponent component = ((ExampleApp) getApplication()).getAppComponent()
-               .getActivityComponentBuilder()
-               .horsePower(150)
-               .engineCapacity(1400)
-               .build();
+               .getActivityComponentFactory()
+               .create(150,1400);
 
         component.inject(this);
         car1.drive();
