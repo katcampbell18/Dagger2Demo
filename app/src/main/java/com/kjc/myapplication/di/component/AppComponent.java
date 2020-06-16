@@ -1,5 +1,6 @@
 package com.kjc.myapplication.di.component;
 
+import com.kjc.myapplication.di.module.DieselEngineModule;
 import com.kjc.myapplication.di.module.DriverModule;
 import com.kjc.myapplication.model.Driver;
 
@@ -11,5 +12,5 @@ import dagger.Component;
 @Component (modules = DriverModule.class)
 public interface AppComponent {
 
-    Driver getDriver();
+    ActivityComponent getActivityComponent(DieselEngineModule dieselEngineModule);
 }

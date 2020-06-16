@@ -8,9 +8,10 @@ import com.kjc.myapplication.ExampleApp;
 import com.kjc.myapplication.R;
 
 import com.kjc.myapplication.di.component.ActivityComponent;
-import com.kjc.myapplication.di.component.DaggerActivityComponent;
 
 
+
+import com.kjc.myapplication.di.module.DieselEngineModule;
 import com.kjc.myapplication.model.Car;
 
 import javax.inject.Inject;
@@ -26,11 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       ActivityComponent component = DaggerActivityComponent.builder()
-               .horsePower(130)
-               .engineCapacity(1400)
-               .appComponent(((ExampleApp) getApplication()).getAppComponent())
-               .build();
+       ActivityComponent component = ((ExampleApp) getApplication()).getAppComponent()
+               .getActivityComponent(new DieselEngineModule(120));
 
         component.inject(this);
         car1.drive();
